@@ -1,0 +1,17 @@
+<h1>ユーザーページ</h1>
+<p>名前 : <%= @userinfo.name %></p>
+<p>メールアドレス : <%= @userinfo.email %></p>
+
+<p>登録決済一覧</p>
+<ul>
+    <li>PayPay : <%=@userinfo.PayPay %></li>
+    <li>LINEPay : <%=@userinfo.LinePay %></li>
+    <li>楽天Pay : <%=@userinfo.RakutenPay %></li>
+    <li>メルペイ : <%=@userinfo.MerPay %></li>
+    <li>D払い : <%=@userinfo.DocomoPay %></li>
+    <li>AU Pay : <%=@userinfo.AuPay %></li>
+</ul>
+
+<% if current_user.id == @userinfo.id %>
+  <%= link_to "支払いの管理", edit_user_registration_path %>
+<% end %>

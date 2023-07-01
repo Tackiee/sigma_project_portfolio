@@ -1,0 +1,9 @@
+送金ページ
+
+<%= form_for @pay do |f| %>
+    <div class="field">
+        <%= f.label :money %>
+        <%= f.number_field :money, :size => 140 %>
+    </div>
+    <%= f.submit "送金" %>
+<% end %>

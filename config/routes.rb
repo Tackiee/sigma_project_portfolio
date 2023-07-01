@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'home' => 'home#index'
-  root 'home#index'
+  root "home#index"
+
+  get "pays/result/:id" => "pays#result", as: "pay"
+  resources :pays
+  resources :home
+  resources :users, only: [:show]
 end
