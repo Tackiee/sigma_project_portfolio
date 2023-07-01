@@ -1,0 +1,15 @@
+トップページ
+<br>
+<br>
+ログイン状態なら、使用可能ブランドや友人リストなどを表示
+<br>
+そうでない場合は、ログインを促すページを差し込む
+<br>
+----ここまでの文章はあくまで説明用----
+<br>
+<br>
+<% if user_signed_in? %>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to "ログイン", new_user_session_path, method: :get %><br />
+<% end %>
