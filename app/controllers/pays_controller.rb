@@ -23,6 +23,10 @@ class PaysController < ApplicationController
         @user = User.find(@pay.user_id)
     end
 
+    def deal
+        
+    end
+
     private
     def pay_params
         params.require(:pay).permit(:money, :user_id)

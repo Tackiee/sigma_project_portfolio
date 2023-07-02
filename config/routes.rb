@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "pays/result/:id" => "pays#result", as: "pay"
   get "pays/receive/:id" => "pays#receive", as: "receive"
+  get "pays/notification" => "pays#notification"
   resources :pays
   resources :home
   resources :users, only: [:show]
