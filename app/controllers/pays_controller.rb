@@ -1,13 +1,11 @@
 class PaysController < ApplicationController
-    def SplitTheBill
-    end
-
     def new
         @pay = Pay.new
     end
 
     def create
         pay = Pay.new(pay_params)
+        pay.user_id = current_user.id
         if pay.save
           redirect_to :action => "result", :id => pay.id
         else
@@ -17,10 +15,16 @@ class PaysController < ApplicationController
 
     def result
         @pay = Pay.find(params[:id])
+        @user = User.find(@pay.user_id)
+    end
+
+    def receive 
+        @pay = Pay.find(params[:id])
+        @user = User.find(@pay.user_id)
     end
 
     private
     def pay_params
-        params.require(:pay).permit(:money)
+        params.require(:pay).permit(:money, :user_id)
     end
 end

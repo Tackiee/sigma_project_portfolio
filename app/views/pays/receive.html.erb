@@ -1,0 +1,5 @@
+<% if current_user.id != @user.id %>
+    <p>あなたは受取人です</p>
+<% else%>
+    <p>あなたは送信者です</p>
+<% end %>
